@@ -1,0 +1,20 @@
+.youtube-link {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    background-color: #808080;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+    .youtube-link a {
+        color: #ffffff;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+    }
+
+    .youtube-link img {
+        width: 30px;
+        margin-right: 5px; 
+    }
