@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fortnite Political Compass</title>
+    <style>
+        body {
+            font-family: 'Helvetica', sans-serif;
+        }
+
+        .question {
+            margin-bottom: 1em;
+        }
+
+        button {
+            margin-top: 1em;
+        }
+
+        #chart {
+            width: 100%;
+            max-width: 9000px;
+            margin: auto;
+        }
+
+        svg {
+            overflow: visible;
+        }
+    </style>
+</head>
+
+
+<body>
+    <div id="content">
+        <h1>Fortnite Compass Test</h1>
+
+        <form id="questionForm">
+            <!-- Question 1 -->
+            <div>
+                <p>1. I am not satisfied with my current skill level.</p>
+                <label><input type="radio" name="q1" value="2"> <strong>Strongly Agree</strong></label>
+                <label><input type="radio" name="q1" value="1"> <strong>Agree</strong></label>
+                <label><input type="radio" name="q1" value="-1"> <strong>Disagree</strong></label>
+                <label><input type="radio" name="q1" value="-2"> <strong>Strongly Disagree</strong></label>
+            </div>
+            <!-- Question 2 -->
+            <div>
+                <p>2. The arena system is better than the ranked system.</p>
+                <label><input type="radio" name="q2" value="1"> <strong>Strongly Agree</strong></label>
+                <label><input type="radio" name="q2" value="0.5"> <strong>Agree</strong></label>
+                <label><input type="radio" name="q2" value="-0.5"> <strong>Disagree</strong></label>
+                <label><input type="radio" name="q2" value="-1"> <strong>Strongly Disagree</strong></label>
+            </div>
+            <!-- Question 3 -->
+            <div>
+                <p>3. Bush camping ruins the game.</p>
+                <label><input type="radio" name="q3" value="1"> <strong>Strongly Agree</strong></label>
+                <label><input type="radio" name="q3" value=".5"> <strong>Agree</strong></label>
+                <label><input type="radio" name="q3" value="-.5"> <strong>Disagree</strong></label>
+                <label><input type="radio" name="q3" value="-1"> <strong>Strongly Disagree</strong></label>
+            </div>
+            <!-- Question 4 -->
+            <div>
+                <p>4. I evolve with the meta.</p>
+                <label><input type="radio" name="q4" value="2"> <strong>Strongly Agree</strong></label>
+                <label><input type="radio" name="q4" value="1"> <strong>Agree</strong></label>
+                <label><input type="radio" name="q4" value="-1"> <strong>Disagree</strong></label>
+                <label><input type="radio" name="q4" value="-2"> <strong>Strongly Disagree</strong></label>
+            </div>
+            <!-- Question 5 -->
+            <div>
+                <p>5. Our platform has many superior qualities compared with others.</p>
+                <label><input type="radio" name="q5" value=".5"> <strong>Strongly Agree</strong></label>
+                <label><input type="radio" name="q5" value=".25"> <strong>Agree</strong></label>
+                <label><input type="radio" name="q5" value="-.25"> <strong>Disagree</strong></label>
+                <label><input type="radio" name="q5" value="-.5"> <strong>Strongly Disagree</strong></label>
+            </div>
+            <!-- Question 6 -->
+            <div>
+                <p>6. Skins are best without a backbling.</p>
+                <label><input type="radio" name="q6" value=".7"> <strong>Strongly Agree</strong></label>
+                <label><input type="radio" name="q6" value=".35"> <strong>Agree</strong></label>
+                <label><input type="radio" name="q6" value="-.35"> <strong>Disagree</strong></label>
+                <label><input type="radio" name="q6" value="-.7"> <strong>Strongly Disagree</strong></label>
+            </div>
+            <!-- Question 7 -->
+            <div>
+                <p>7. Fortnite should not have AI.</p>
+                <label><input type="radio" name="q7" value="1.3"> <strong>Strongly Agree</strong></label>
+                <label><input type="radio" name="q7" value=".65"> <strong>Agree</strong></label>
+                <label><input type="radio" name="q7" value="-.65"> <strong>Disagree</strong></label>
+                <label><input type="radio" name="q7" value="-1.3"> <strong>Strongly Disagree</strong></label>
+            </div>
+            <!-- Question 8 -->
+            <div>
+                <p>8. I enjoy zero build more than build.</p>
+                <label><input type="radio" name="q8" value="-2"> <strong>Strongly Agree</strong></label>
+                <label><input type="radio" name="q8" value="-1"> <strong>Agree</strong></label>
+                <label><input type="radio" name="q8" value="1"> <strong>Disagree</strong></label>
+                <label><input type="radio" name="q8" value="2"> <strong>Strongly Disagree</strong></label>
+            </div>
+            <!-- Question 9 -->
+            <div>
+                <p>9. I avoid hotdrops.</p>
+                <label><input type="radio" name="q9" value="-2"> <strong>Strongly Agree</strong></label>
+                <label><input type="radio" name="q9" value="-1"> <strong>Agree</strong></label>
+                <label><input type="radio" name="q9" value="1"> <strong>Disagree</strong></label>
+                <label><input type="radio" name="q9" value="2"> <strong>Strongly Disagree</strong></label>
+            </div>
+            <!-- Question 10 -->
+            <div>
+                <p>10. People are too sweaty nowadays.</p>
+                <label><input type="radio" name="q10" value="-1.5"> <strong>Strongly Agree</strong></label>
+                <label><input type="radio" name="q10" value="-.75"> <strong>Agree</strong></label>
+                <label><input type="radio" name="q10" value=".75"> <strong>Disagree</strong></label>
+                <label><input type="radio" name="q10" value="1.5"> <strong>Strongly Disagree</strong></label>
+            </div>
+
+
+
+
+            <!-- Question 11 -->
+            <div>
+                <p>11. Fortnite has gone too far with their collaborations.</p>
+                <label><input type="radio" name="q11" value="-.5"> <strong>Strongly Agree</strong></label>
+                <label><input type="radio" name="q11" value="-.25"> <strong>Agree</strong></label>
+                <label><input type="radio" name="q11" value=".25"> <strong>Disagree</strong></label>
+                <label><input type="radio" name="q11" value=".5"> <strong>Strongly Disagree</strong></label>
+            </div>
+            <!-- Question 12 -->
+            <div>
+                <p>12. Playground was better than modern creative.</p>
+                <label><input type="radio" name="q12" value="-1"> <strong>Strongly Agree</strong></label>
+                <label><input type="radio" name="q12" value="-.5"> <strong>Agree</strong></label>
+                <label><input type="radio" name="q12" value=".5"> <strong>Disagree</strong></label>
+                <label><input type="radio" name="q12" value="1"> <strong>Strongly Disagree</strong></label>
+            </div>
+            <!-- Question 13 -->
+            <div>
+                <p>13. Fortnite is now more profit driven than before.</p>
+                <label><input type="radio" name="q13" value="-.5"> <strong>Strongly Agree</strong></label>
+                <label><input type="radio" name="q13" value="-.25"> <strong>Agree</strong></label>
+                <label><input type="radio" name="q13" value=".25"> <strong>Disagree</strong></label>
+                <label><input type="radio" name="q13" value=".5"> <strong>Strongly Disagree</strong></label>
+            </div>
+            <!-- Question 14 -->
+            <div>
+                <p>14. Fortnite is dying.</p>
+                <label><input type="radio" name="q14" value="-2"> <strong>Strongly Agree</strong></label>
+                <label><input type="radio" name="q14" value="-1"> <strong>Agree</strong></label>
+                <label><input type="radio" name="q14" value="1"> <strong>Disagree</strong></label>
+                <label><input type="radio" name="q14" value="2"> <strong>Strongly Disagree</strong></label>
+            </div>
+            <!-- Question 15 -->
+            <div>
+                <p>15. The regular pump is and will always be the best shotgun.</p>
+                <label><input type="radio" name="q15" value="-.3"> <strong>Strongly Agree</strong></label>
+                <label><input type="radio" name="q15" value="-.15"> <strong>Agree</strong></label>
+                <label><input type="radio" name="q15" value=".15"> <strong>Disagree</strong></label>
+                <label><input type="radio" name="q15" value=".3"> <strong>Strongly Disagree</strong></label>
+            </div>
+            <!-- Question 16 -->
+            <div>
+                <p>16. The old storyline is better than the new one.</p>
+                <label><input type="radio" name="q16" value="-.7"> <strong>Strongly Agree</strong></label>
+                <label><input type="radio" name="q16" value="-.35"> <strong>Agree</strong></label>
+                <label><input type="radio" name="q16" value=".35"> <strong>Disagree</strong></label>
+                <label><input type="radio" name="q16" value=".7"> <strong>Strongly Disagree</strong></label>
+            </div>
+            <!-- Question 17 -->
+            <div>
+                <p>17. The new maps are better.</p>
+                <label><input type="radio" name="q17" value="2"> <strong>Strongly Agree</strong></label>
+                <label><input type="radio" name="q17" value="1"> <strong>Agree</strong></label>
+                <label><input type="radio" name="q17" value="-1"> <strong>Disagree</strong></label>
+                <label><input type="radio" name="q17" value="-2"> <strong>Strongly Disagree</strong></label>
+            </div>
+            <!-- Question 18 -->
+            <div>
+                <p>18. The new movement (mantling, sliding, etc) makes the game better.</p>
+                <label><input type="radio" name="q18" value="1"> <strong>Strongly Agree</strong></label>
+                <label><input type="radio" name="q18" value=".5"> <strong>Agree</strong></label>
+                <label><input type="radio" name="q18" value="-.5"> <strong>Disagree</strong></label>
+                <label><input type="radio" name="q18" value="-1"> <strong>Strongly Disagree</strong></label>
+            </div>
+            <!-- Question 19 -->
+            <div>
+                <p>19. It is foolish to be proud of when you started playing.</p>
+                <label><input type="radio" name="q19" value="1"> <strong>Strongly Agree</strong></label>
+                <label><input type="radio" name="q19" value=".5"> <strong>Agree</strong></label>
+                <label><input type="radio" name="q19" value="-.5"> <strong>Disagree</strong></label>
+                <label><input type="radio" name="q19" value="-1"> <strong>Strongly Disagree</strong></label>
+            </div>
+            <!-- Question 20 -->
+            <div>
+                <p>20. Chapter 2 Season 2 is better than Chapter 1 Season 4.</p>
+                <label><input type="radio" name="q20" value="1.5"> <strong>Strongly Agree</strong></label>
+                <label><input type="radio" name="q20" value=".75"> <strong>Agree</strong></label>
+                <label><input type="radio" name="q20" value="-.75"> <strong>Disagree</strong></label>
+                <label><input type="radio" name="q20" value="-1.5"> <strong>Strongly Disagree</strong></label>
+            </div>
+            <!-- Question 21 -->
+            <div>
+                <p>21. I have no plans of quitting Fortnite.</p>
+                <label><input type="radio" name="q21" value="1.5"> <strong>Strongly Agree</strong></label>
+                <label><input type="radio" name="q21" value=".75"> <strong>Agree</strong></label>
+                <label><input type="radio" name="q21" value="-.75"> <strong>Disagree</strong></label>
+                <label><input type="radio" name="q21" value="-1.5"> <strong>Strongly Disagree</strong></label>
+            </div>
+
+
+            <button type="button" onclick="calculateScore()">Submit</button>
+        </form>
+    </div>
+
+    <p id="result"></p>
+
+    <script>
+        function calculateScore() {
+            let scoreX = 0;
+            let scoreY = 0;
+
+            for (let i = 1; i <= 10; i++) { // first 10 are P/C
+                const selectedValue = document.querySelector('input[name="q' + i + '"]:checked');
+
+                if (selectedValue) {
+                    scoreY += parseFloat(selectedValue.value);
+                } else {
+                    alert('Please answer all questions before submitting.');
+                    return;
+                }
+            }
+            for (let i = 11; i <= 21; i++) { // next 11 are T/M
+                const selectedValue = document.querySelector('input[name="q' + i + '"]:checked');
+
+                if (selectedValue) {
+                    scoreX += parseFloat(selectedValue.value);
+                } else {
+                    alert('Please answer all questions before submitting.');
+                    return;
+                }
+            }
+            // mapping reference
+            // p/c, 14, 470, y
+            // t/m, 12, 430, x
+            let px = ((scoreX + 12) / 24) * 430;
+            let py = ((scoreY + 14) / 28) * 470;
+            let scoreXScaled = ((scoreX / 12) * 100).toFixed(2);
+            let scoreYScaled = ((scoreY / 14) * 100).toFixed(2);
+
+
+
+
+
+            var prudentism100 = [
+                "You frequently play the game and take conscious measures to improve your skill. You are\nactively devoted to the game, often keeping up with community matters.\n",
+                "You consistently engage in the game, consciously taking steps to enhance your skills.\nYour active dedication is evident as you frequently stay updated on community matters.\n",
+                "Playing the game is a regular part of your routine, and you make deliberate efforts to\nenhance your skills. Your active commitment is highlighted by your regular involvement in community discussions.\n",
+                "Regularly participating in the game, you consciously work towards improving your skills.\nYour active involvement extends to staying informed about community-related updates.\n",
+                "Your game involvement is frequent, and you actively pursue skill improvement through\nconscious measures. Keeping abreast of community affairs is a testament to your dedication.\n",
+                "Engaging in the game on a regular basis, you take deliberate actions to enhance your \nskills. Your active commitment is demonstrated by your consistent interest in community affairs.\n",
+            ];
+            var prudentism0 = [
+                "You play the game regularly and hope to improve but do not care enough to put effort \ninto it. You have general  knowledge of what is happening in the community but nothing too\n in-depth.\n",
+                "You play the game regularly with a hope for improvement but lack the motivation to\n invest significant effort. Your awareness of community events is basic, without delving into\nin-depth details.\n",
+                "Regularly participating in the game, your aspiration for improvement exists, but you lack\n the enthusiasm to invest substantial effort. Your knowledge of community matters is\ngeneral, not delving into specifics.\n",
+                "Engaging in the game on a regular basis, you hold a desire for improvement but do not \nactively invest effort. Your understanding of community happenings is at a surface level, \nlacking in-depth insights.\n",
+                "Playing the game regularly, you aspire for improvement without putting in considerable\n effort. Your awareness of community affairs is general and doesn't extend to detailed\n knowledge.\n",
+                "While playing the game regularly, your hope for improvement exists, but you don't\n prioritize putting in significant effort. Your knowledge of community matters is overall basic, \nwithout going into intricate details.\n",
+            ];
+            var prudentismNegative100 = [
+                "You have no interest in improving. You solely play for fun with your IRL friends \npredominantly in game modes such as unranked zero builds or creative mini-games. You have no\nknowledge of whatever new exploit is uncovered or whatever pro failed to qualify.\n",
+                "Your primary focus in playing the game is purely for fun, with no interest in improvement.\n You predominantly enjoy casual modes with real-life friends, favoring unranked zero builds \nor creative mini-games. You remain unaware of any new exploits or the failures of professional \nplayers to qualify.\n",
+                "Playing the game is solely for enjoyment, without any inclination for improvement. Your\n preference is for casual modes with real-life friends, particularly favoring unranked zero \nbuilds or creative mini-games. You are not informed about new exploits or the struggles of professional \nplayers in qualifying.\n",
+                "Your game-playing is driven by the sole purpose of having fun, without any motivation for\n improvement. You predominantly engage in casual modes with real-life friends, particularly \nfavoring unranked zero builds or creative mini-games. You remain oblivious to any new exploits or the \nchallenges faced by professional players.\n",
+                "Fun is your main motive in playing the game, without any desire for improvement. You mostly \nplay casual modes with real-life friends, emphasizing unranked zero builds or creative\n mini-games. You lack awareness of new exploits or the setbacks experienced by professional players.\n",
+                "The core of your game-playing is centered around enjoyment, devoid of any interest in \nimprovement. You primarily engage in casual modes with real-life friends, focusing on unranked\nzero builds or creative mini-games. You are uninformed about any new exploits or the difficulties\n encountered by professional players. \n",
+            ];
+
+
+            var traditionalism100 = [
+                "You prefer OG Fortnite by a mile and believe the game will never be the same again. You \nhate how money-focused Epic Games has become and wish the storyline to be revived to what it \nwas in 2017-2018. You only started playing consistently again when Fortnite OG was re-released and\n believe the game has died long ago.",
+                "Your strong preference lies with the original Fortnite, and you firmly believe that the\n game has irreversibly changed. You harbor a dislike for the increased focus on monetization by\n Epic Games and yearn for a revival of the storyline to its 2017-2018 glory. Your renewed consistency\n in playing emerged with the re-release of Fortnite OG, as you perceive the game to have lost its essence long ago.",
+                "The original Fortnite holds a special place in your gaming preferences, and you assert\n that the game has undergone irreversible transformations. Your discontent with Epic Games' \nheightened focus on monetization is evident, and you long for a return to the storyline's 2017-2018 roots.\n Your renewed commitment to playing coincided with the re-release of Fortnite OG, as you believe the game lost its vitality long ago.",
+                "Your strong inclination is towards the OG version of Fortnite, and you firmly believe\n that the game's essence has been permanently altered. You express dissatisfaction with the\n increased financial focus of Epic Games and wish for a storyline revival to the 2017-2018 era. Your return \nto consistent play aligns with the re-release of Fortnite OG, as you feel the game lost its appeal long ago.",
+                "The original iteration of Fortnite holds significant appeal for you, and you maintain a \nconviction that the game has undergone irreversible changes. You express disapproval of Epic\n Games' heightened financial focus and desire a return to the storyline's 2017-2018 narrative. Your \nrenewed commitment to playing coincides with the re-release of Fortnite OG, reflecting your belief that the game lost its charm long ago.",
+            ];
+            var traditionalism0 = [
+                "You likely prefer OG Fortnite for nostalgic purposes but believe the game is still \nenjoyable as is. Fortnite may not be as popular as it used to be during it's prime, but it is still\n one of the most played games. Although the new seasons are not perfect, you enjoy how rich they are \nin content. ",
+                "While your preference for OG Fortnite is likely fueled by nostalgia, you acknowledge the\n current version of the game is still enjoyable. Even though Fortnite may not be as popular as\n it was during its prime, you recognize it remains one of the most played games. Despite the \nimperfections in new seasons, you appreciate the richness of content they bring.",
+                "Nostalgia likely fuels your preference for OG Fortnite, but you find the current version\n enjoyable. Acknowledging that Fortnite may not be as popular as it once was, you still recognize \nits status as one of the most played games. Despite the imperfections in new seasons, you enjoy \nthe abundance of content they offer.",
+                "Your likely preference for OG Fortnite is rooted in nostalgia, but you find the current \nversion to be enjoyable. While Fortnite may not be as popular as it used to be, you still \nacknowledge its position as one of the most played games. Despite any imperfections in new seasons, you \nappreciate the wealth of content they bring.",
+                "Nostalgia likely influences your preference for OG Fortnite, but you see the current \nversion as enjoyable. Recognizing that Fortnite may not be as popular as it once was, you still note \nits prominence as one of the most played games. Despite any flaws in new seasons, you enjoy the \nabundance of content they provide.",
+                "Your likely preference for OG Fortnite is driven by nostalgia, but you find the current\n version enjoyable. Even though Fortnite may not be as popular as it was in its prime, you \nacknowledge its continued status as one of the most played games. Despite any imperfections in new seasons, \nyou appreciate the richness of their content.",
+            ];
+            var traditionalismNegative100 = [
+                "You like where Fortnite has come, think it is more enjoyable than ever and have no plans \nof quitting. You may have only picked up the game again recently and do not see much room for\n improve and love where Epic Games is going.",
+                "You appreciate the current state of Fortnite, finding it more enjoyable than ever, and have\n no intentions of quitting. Whether you recently returned to the game or have been playing\n consistently, you see little room for improvement and embrace the direction Epic Games is taking.",
+                "The present iteration of Fortnite resonates with you, being more enjoyable than ever, and\n you have no plans to quit. Whether you're a recent returnee or a long-time player, you perceive\n limited opportunities for improvement and fully endorse the direction in which Epic Games is \nsteering the game.",
+                "You find the current state of Fortnite to be more enjoyable than ever, and your commitment \nto the game shows no signs of waning. Whether you've recently rejoined or have been playing\n consistently, you don't see much room for improvement and applaud Epic Games for their current\n trajectory.",
+                "The current state of Fortnite has your approval, being more enjoyable than ever, and you're\n in it for the long haul with no plans to quit. Regardless of whether you've recently picked up the\n game again or have been playing consistently, you don't foresee significant areas for improvement \nand appreciate the direction taken by Epic Games.",
+                "You genuinely enjoy the current state of Fortnite, finding it more engaging than ever, and \nhave no intentions of stopping anytime soon. Whether you recently returned to the game or have been\n playing consistently, you see little need for improvement and are enthusiastic about the direction\n Epic Games is steering.",
+            ];
+
+            let text = "null";
+
+            if (scoreYScaled >= -100 && scoreYScaled <= -50) {
+                text = prudentismNegative100[Math.floor(Math.random() * prudentismNegative100.length)];
+            } else if (scoreYScaled >= -49 && scoreYScaled <= 50) {
+                text = prudentism0[Math.floor(Math.random() * prudentism0.length)];
+            } else {
+                text = prudentism100[Math.floor(Math.random() * prudentism100.length)];
+            }
+
+            if (scoreXScaled >= -100 && scoreXScaled <= -50) {
+                text += traditionalismNegative100[Math.floor(Math.random() * traditionalismNegative100.length)];
+            } else if (scoreXScaled >= -49 && scoreXScaled <= 50) {
+                text += traditionalism0[Math.floor(Math.random() * traditionalism0.length)];
+            } else {
+                text += traditionalism100[Math.floor(Math.random() * traditionalism100.length)];
+            }
+
+            document.getElementById("content").innerHTML = '';
+            var newContent = `<!DOCTYPE html>
+<article class="measure-wide center">
+        <header>
+            <h2 class="f3 f2-ns mid-gray serif">
+                Your Fortnite Political Compass results are in!
+            </h2>
+        </header>
+        <section class="f4-ns lh-copy pc-copy">
+            <h2 class="f5 f3-ns mid-gray serif">
+                Traditionalism/Modernism:
+                ${scoreXScaled}
+                <br>
+                Prudentism/Casualism:
+                ${scoreYScaled}
+            </h2>
+        </section>
+        <header>
+
+
+            <div id="chart">
+                <svg id="SvgjsSvg1001" width="720" height="600" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs">
+                    <defs id="SvgjsDefs1002"><path id="SvgjsPath1072" d="m 226.07142857142856 145.6578947368421 l 300 0 "></path></defs>
+                    <svg id="SvgjsSvg1008" x="160" y="63.1578947368421" style="overflow: visible;">
+
+                        <rect id="SvgjsRect1009" width="214.28571428571428" height="236.8421052631579" fill="#ff7575"></rect>
+                        <rect id="SvgjsRect1010" width="214.28571428571428" height="236.8421052631579" fill="#42aaff" x="214.28571428571428"></rect>
+                        <rect id="SvgjsRect1011" width="214.28571428571428" height="236.8421052631579" fill="#9aed97" y="236.8421052631579"></rect>
+                        <rect id="SvgjsRect1012" width="214.28571428571428" height="236.8421052631579" fill="#c09aec" x="214.28571428571428" y="236.8421052631579"></rect>
+
+                        <line id="SvgjsLine1013" x1="0" y1="0" x2="0" y2="473.6842105263158" stroke="#b8b8b8" stroke-width="1">></line>
+
+
+                        <line id="SvgjsLine1014" x1="21.428571428571445" y1="0" x2="21.428571428571445" y2="473.6842105263158" stroke="#b8b8b8" stroke-width="1">
+                            >
+                        </line>
+                        <line id="SvgjsLine1015" x1="42.85714285714286" y1="0" x2="42.85714285714286" y2="473.6842105263158" stroke="#b8b8b8" stroke-width="1">
+                            >
+                        </line>
+                        <line id="SvgjsLine1016" x1="64.28571428571428" y1="0" x2="64.28571428571428" y2="473.6842105263158" stroke="#b8b8b8" stroke-width="1">
+                            >
+                        </line>
+                        <line id="SvgjsLine1017" x1="85.71428571428572" y1="0" x2="85.71428571428572" y2="473.6842105263158" stroke="#b8b8b8" stroke-width="1">
+                            >
+                        </line>
+                        <line id="SvgjsLine1018" x1="107.14285714285714" y1="0" x2="107.14285714285714" y2="473.6842105263158" stroke="#b8b8b8" stroke-width="1">
+                            >
+                        </line>
+                        <line id="SvgjsLine1019" x1="128.57142857142856" y1="0" x2="128.57142857142856" y2="473.6842105263158" stroke="#b8b8b8" stroke-width="1">
+                            >
+                        </line>
+                        <line id="SvgjsLine1020" x1="150" y1="0" x2="150" y2="473.6842105263158" stroke="#b8b8b8" stroke-width="1">
+                            >
+                        </line>
+                        <line id="SvgjsLine1021" x1="171.42857142857142" y1="0" x2="171.42857142857142" y2="473.6842105263158" stroke="#b8b8b8" stroke-width="1">
+                            >
+                        </line>
+                        <line id="SvgjsLine1022" x1="192.85714285714286" y1="0" x2="192.85714285714286" y2="473.6842105263158" stroke="#b8b8b8" stroke-width="1">
+                            >
+                        </line>
+                        <line id="SvgjsLine1023" x1="214.28571428571428" y1="0" x2="214.28571428571428" y2="473.6842105263158" stroke="#b8b8b8" stroke-width="1">
+                            >
+                        </line>
+                        <line id="SvgjsLine1024" x1="235.7142857142857" y1="0" x2="235.7142857142857" y2="473.6842105263158" stroke="#b8b8b8" stroke-width="1">
+                            >
+                        </line>
+                        <line id="SvgjsLine1025" x1="257.1428571428571" y1="0" x2="257.1428571428571" y2="473.6842105263158" stroke="#b8b8b8" stroke-width="1">
+                            >
+                        </line>
+                        <line id="SvgjsLine1026" x1="278.57142857142856" y1="0" x2="278.57142857142856" y2="473.6842105263158" stroke="#b8b8b8" stroke-width="1">
+                            >
+                        </line>
+                        <line id="SvgjsLine1027" x1="300" y1="0" x2="300" y2="473.6842105263158" stroke="#b8b8b8" stroke-width="1">
+                            >
+                        </line>
+                        <line id="SvgjsLine1028" x1="321.42857142857144" y1="0" x2="321.42857142857144" y2="473.6842105263158" stroke="#b8b8b8" stroke-width="1">
+                            >
+                        </line>
+                        <line id="SvgjsLine1029" x1="342.85714285714283" y1="0" x2="342.85714285714283" y2="473.6842105263158" stroke="#b8b8b8" stroke-width="1">
+                            >
+                        </line>
+                        <line id="SvgjsLine1030" x1="364.2857142857143" y1="0" x2="364.2857142857143" y2="473.6842105263158" stroke="#b8b8b8" stroke-width="1">
+                            >
+                        </line>
+                        <line id="SvgjsLine1031" x1="385.71428571428567" y1="0" x2="385.71428571428567" y2="473.6842105263158" stroke="#b8b8b8" stroke-width="1">
+                            >
+                        </line>
+                        <line id="SvgjsLine1032" x1="407.1428571428571" y1="0" x2="407.1428571428571" y2="473.6842105263158" stroke="#b8b8b8" stroke-width="1">
+                            >
+                        </line>
+                        <line id="SvgjsLine1033" x1="428.57142857142856" y1="0" x2="428.57142857142856" y2="473.6842105263158" stroke="#b8b8b8" stroke-width="1">
+                            >
+                        </line>
+                        <line id="SvgjsLine1034" x1="0" y1="2.842170943040401e-14" x2="428.57142857142856" y2="2.842170943040401e-14" stroke="#b8b8b8" stroke-width="1">
+                            >
+                        </line>
+                        <line id="SvgjsLine1035" x1="0" y1="23.68421052631581" x2="428.57142857142856" y2="23.68421052631581" stroke="#b8b8b8" stroke-width="1">
+                            >
+                        </line>
+                        <line id="SvgjsLine1036" x1="0" y1="47.36842105263159" x2="428.57142857142856" y2="47.36842105263159" stroke="#b8b8b8" stroke-width="1">
+                            >
+                        </line>
+                        <line id="SvgjsLine1037" x1="0" y1="71.05263157894737" x2="428.57142857142856" y2="71.05263157894737" stroke="#b8b8b8" stroke-width="1">
+                            >
+                        </line>
+                        <line id="SvgjsLine1038" x1="0" y1="94.73684210526315" x2="428.57142857142856" y2="94.73684210526315" stroke="#b8b8b8" stroke-width="1">
+                            >
+                        </line>
+                        <line id="SvgjsLine1039" x1="0" y1="118.42105263157896" x2="428.57142857142856" y2="118.42105263157896" stroke="#b8b8b8" stroke-width="1">
+                            >
+                        </line>
+                        <line id="SvgjsLine1040" x1="0" y1="142.10526315789474" x2="428.57142857142856" y2="142.10526315789474" stroke="#b8b8b8" stroke-width="1">
+                            >
+                        </line>
+                        <line id="SvgjsLine1041" x1="0" y1="165.78947368421052" x2="428.57142857142856" y2="165.78947368421052" stroke="#b8b8b8" stroke-width="1">
+                            >
+                        </line>
+                        <line id="SvgjsLine1042" x1="0" y1="189.4736842105263" x2="428.57142857142856" y2="189.4736842105263" stroke="#b8b8b8" stroke-width="1">
+                            >
+                        </line>
+                        <line id="SvgjsLine1043" x1="0" y1="213.1578947368421" x2="428.57142857142856" y2="213.1578947368421" stroke="#b8b8b8" stroke-width="1">
+                            >
+                        </line>
+                        <line id="SvgjsLine1044" x1="0" y1="236.8421052631579" x2="428.57142857142856" y2="236.8421052631579" stroke="#b8b8b8" stroke-width="1">
+                            >
+                        </line>
+                        <line id="SvgjsLine1045" x1="0" y1="260.5263157894737" x2="428.57142857142856" y2="260.5263157894737" stroke="#b8b8b8" stroke-width="1">
+                            >
+                        </line>
+                        <line id="SvgjsLine1046" x1="0" y1="284.2105263157895" x2="428.57142857142856" y2="284.2105263157895" stroke="#b8b8b8" stroke-width="1">
+                            >
+                        </line>
+                        <line id="SvgjsLine1047" x1="0" y1="307.89473684210526" x2="428.57142857142856" y2="307.89473684210526" stroke="#b8b8b8" stroke-width="1">
+                            >
+                        </line>
+                        <line id="SvgjsLine1048" x1="0" y1="331.57894736842104" x2="428.57142857142856" y2="331.57894736842104" stroke="#b8b8b8" stroke-width="1">
+                            >
+                        </line>
+                        <line id="SvgjsLine1049" x1="0" y1="355.2631578947368" x2="428.57142857142856" y2="355.2631578947368" stroke="#b8b8b8" stroke-width="1">
+                            >
+                        </line>
+                        <line id="SvgjsLine1050" x1="0" y1="378.9473684210526" x2="428.57142857142856" y2="378.9473684210526" stroke="#b8b8b8" stroke-width="1">
+                            >
+                        </line>
+                        <line id="SvgjsLine1051" x1="0" y1="402.63157894736844" x2="428.57142857142856" y2="402.63157894736844" stroke="#b8b8b8" stroke-width="1">
+                            >
+                        </line>
+                        <line id="SvgjsLine1052" x1="0" y1="426.31578947368416" x2="428.57142857142856" y2="426.31578947368416" stroke="#b8b8b8" stroke-width="1">
+                            >
+                        </line>
+                        <line id="SvgjsLine1053" x1="0" y1="450" x2="428.57142857142856" y2="450" stroke="#b8b8b8" stroke-width="1">
+                            >
+                        </line>
+                        <line id="SvgjsLine1054" x1="0" y1="473.6842105263157" x2="428.57142857142856" y2="473.6842105263157" stroke="#b8b8b8" stroke-width="1">
+                            >
+                        </line>
+                        <line id="SvgjsLine1055" x1="0" y1="236.8421052631579" x2="428.57142857142856" y2="236.8421052631579" stroke="#000000" stroke-width="2">
+                            >
+                        </line>
+                        <line id="SvgjsLine1056" x1="214.28571428571428" y1="0" x2="214.28571428571428" y2="473.6842105263158" stroke="#000000" stroke-width="2">
+                            >
+                        </line>  <!-- lines for the grid -->
+
+                        <text id="SvgjsText1069" font-family="Verdana" font-size="1.1204081632653062em" size="1.1204081632653062em" family="Verdana">
+                            <textPath id="SvgjsTextPath1071" xlink:href="#SvgjsPath1072">
+                                <tspan id="SvgjsTspan1070" dy="20.8" x="0"></tspan>
+                            </textPath>
+                        </text>
+                        <svg id="SvgjsSvg1073" style="overflow: visible;"></svg>
+                        <circle id="SvgjsCircle1074" r="12.857142857142856" cx="${px}" cy="${py}" fill="#ff0000" stroke="black" stroke-width="1px"></circle>
+                        <svg id="SvgjsSvg1075" style="overflow: visible;"></svg>
+                    </svg>
+                    <text id="SvgjsText1057" font-family="Helvetica" font-size="21.428571428571427" font-weight="bold" text-anchor="middle" family="Helvetica" size="21.428571428571427" weight="bold" anchor="middle" x="300" fill="#666666" y="28.421052631578945">
+                        <tspan id="SvgjsTspan1058" dy="27.857142857142858" x="375">Prudentism</tspan>
+                    </text>
+                    <text id="SvgjsText1059" font-family="Helvetica" font-size="21.428571428571427" font-weight="bold" text-anchor="middle" family="Helvetica" size="21.428571428571427" weight="bold" anchor="middle" x="300" fill="#666666" y="525.7894736842105">
+                        <tspan id="SvgjsTspan1060" dy="27.857142857142858" x="375">Casualism</tspan>
+                    </text>
+                    <text id="SvgjsText1061" font-family="Helvetica" font-size="21.428571428571427" font-weight="bold" text-anchor="middle" family="Helvetica" size="21.428571428571427" weight="bold" anchor="middle" fill="#666666" x="62.154910714285705"
+                          y="275.35338291368987">
+                        <tspan id="SvgjsTspan1062" dy="27.857142857142858" x="80">Traditionalism</tspan>
+                    </text>
+                    <text id="SvgjsText1063" font-family="Helvetica" font-size="21.428571428571427" font-weight="bold" text-anchor="middle" family="Helvetica" size="21.428571428571427" weight="bold" anchor="middle" fill="#666666" x="541.6529017857142"
+                          y="275.35338291368987">
+                        <tspan id="SvgjsTspan1064" dy="27.857142857142858" x="650">Modernism</tspan>
+                    </text>
+                    <text id="SvgjsText1065" font-family="Helvetica" font-size="13.39285714285714" font-weight="bold" text-anchor="middle" family="Helvetica" size="13.39285714285714" weight="bold" anchor="middle" x="158.57142857142858" fill="#000066"
+                          y="279.4736842105263" font-style="italic">
+                    </text>
+                    <text id="SvgjsText1067" font-family="Helvetica" font-size="13.39285714285714" font-weight="bold" text-anchor="middle" family="Helvetica" size="13.39285714285714" weight="bold" anchor="middle" x="292.85714285714283" fill="#003399"
+                          y="461.84210526315786" font-style="italic" transform="matrix(-1.8369701987210297e-16,-1,1,-1.8369701987210297e-16,-181.89566040039057,767.6099548339845)">
+                    </text>
+                </svg>
+                <div id="randomString" style="position: absolute; top: 0; right: 0; padding: 20px;">
+                <p id="displayString"></p>
+            </div>
+
+            </div>
+                <div class="youtube-link">
+        <a href="https://www.youtube.com/@NoelAndPulse" target="_blank">
+            <img src="youtube-icon.png" alt="YouTube Icon"> Visit Our YouTube Channel
+        </a>
+    </div>
+        </header>
+</article>`;
+            document.body.innerHTML = newContent;
+            document.getElementById("displayString").innerText = text;
+
+        }
+
+    </script>
+
+    <div class="youtube-link">
+        <a href="https://www.youtube.com/@NoelAndPulse" target="_blank">
+            <img src="youtube-icon.png" alt="YouTube Icon"> Visit Our YouTube Channel
+        </a>
+    </div>
+</body>
+</html>
